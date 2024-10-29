@@ -238,7 +238,8 @@
         }
       ],
       "title": "Yes/No test",
-      "_tab": "Content"
+      "_tab": "Content",
+      "indexParameter": "counter"
     },
     "6": {
       "id": "6",
@@ -270,7 +271,7 @@
         }
       ],
       "title": "Sequence",
-      "_tab": "Files"
+      "_tab": "Behavior"
     },
     "7": {
       "id": "7",
@@ -306,7 +307,7 @@
       ],
       "title": "Screen - Yes/No",
       "_tab": "Content",
-      "content": "<header>\r\n  <h2>Do you hear the same word?</h2>\r\n</header>\r\n\r\n<main class=\"content-horizontal-center content-vertical-center\">\r\n  <table class=\"w-l table-plain\" style=\"font-size: 1.5rem\">\r\n    <tr>\r\n      <td style=\"width: 50%\">\r\n        <audio id=\"audioA\" controls>\r\n          <source src=\"${this.files[parameters.switch ? parameters.audioA : parameters.audioB]}\" type=\"audio/mpeg\">\r\n          Your browser does not support the audio element.\r\n        </audio>\r\n      </td>\r\n      <td style=\"width: 50%\">\r\n        <audio id=\"audioB\" controls>\r\n          <source src=\"${this.files[parameters.switch ? parameters.audioB : parameters.audioA]}\" type=\"audio/mpeg\">\r\n          Your browser does not support the audio element.\r\n        </audio>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n</main>\r\n\r\n<footer style=\"text-align: center; margin-top: 20px;\">\r\n  <button id=\"same\" style=\"padding: 10px 20px; font-size: 1rem; margin: 10px;\">Same</button>\r\n  <button id=\"different\" style=\"padding: 10px 20px; font-size: 1rem; margin: 10px;\">Different</button>\r\n</footer>\r\n",
+      "content": "<header>\r\n  <h2>Do you hear the same word?</h2>\r\n</header>\r\n<h3 style=\"text-align: center;\">Trial ${this.parameters.counter +1}</h3>\r\n<main class=\"content-horizontal-center content-vertical-center\">\r\n  <table class=\"w-l table-plain\" style=\"font-size: 1.5rem\">\r\n    <tr>\r\n      <td style=\"width: 50%\">\r\n        <audio id=\"audioA\" controls>\r\n          <source src=\"${this.files[parameters.switch ? parameters.audioA : parameters.audioB]}\" type=\"audio/mpeg\">\r\n          Your browser does not support the audio element.\r\n        </audio>\r\n      </td>\r\n      <td style=\"width: 50%\">\r\n        <audio id=\"audioB\" controls>\r\n          <source src=\"${this.files[parameters.switch ? parameters.audioB : parameters.audioA]}\" type=\"audio/mpeg\">\r\n          Your browser does not support the audio element.\r\n        </audio>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n</main>\r\n\r\n<footer style=\"text-align: center; margin-top: 20px;\">\r\n  <button id=\"same\" style=\"padding: 10px 20px; font-size: 1rem; margin: 10px;\">Same</button>\r\n  <button id=\"different\" style=\"padding: 10px 20px; font-size: 1rem; margin: 10px;\">Different</button>\r\n</footer>\r\n",
       "correctResponse": "${parameters.audioA.replace(/\\d*\\.mp3$/,'') === parameters.audioB.replace(/\\d*\\.mp3$/,'') ? 'same' : 'different'}"
     },
     "8": {
